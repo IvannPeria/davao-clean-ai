@@ -134,7 +134,8 @@ const handleClassify = async () => {
     const formData = new FormData();
     formData.append('file', selectedFile);
 
-    const response = await fetch('https://davao-clean-ai.onrender.com', {
+    // Using your specific Render URL
+    const response = await fetch('https://davao-clean-ai.onrender.com/predict', {
       method: 'POST',
       body: formData,
     });
@@ -142,13 +143,8 @@ const handleClassify = async () => {
     if (!response.ok) throw new Error('Network response was not ok');
 
     const data = await response.json();
-    
-    // This now returns a valid WasteCategory type, fixing Error 2345
     const category = mapLabelToCategory(data.label);
-    
     setResult(category);
-    
-    console.log(`AI detected ${data.label} -> Categorized as ${category}`);
 
   } catch (error) {
     console.error("Error classifying waste:", error);

@@ -10,8 +10,8 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000", 
-        "https://davao-clean-ai.vercel.app" # Tip: Remove trailing slash
+        "http://localhost:3000",
+        "https://davao-clean-ai.vercel.app"
     ],
     allow_methods=["*"],
     allow_headers=["*"],
