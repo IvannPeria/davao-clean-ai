@@ -115,7 +115,7 @@ export default function ClassifierPage() {
 const mapLabelToCategory = (label: string): WasteCategory => {
   const mapping: Record<string, WasteCategory> = {
     'Cardboard': 'Recyclable',
-    'Paper': 'Recyclable',
+    'Paper': 'Biodegradable',
     'Glass': 'Recyclable',
     'Metal': 'Recyclable',
     'Plastic': 'Recyclable',
