@@ -1,6 +1,6 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
-import tensorflow as tf
+import tflite_runtime.interpreter as tflite # Change here
 import numpy as np
 from PIL import Image
 import io
@@ -11,15 +11,15 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000", 
-        "https://davao-clean-ai.vercel.app/"
+        "https://davao-clean-ai.vercel.app" # Tip: Remove trailing slash
     ],
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# 1. Use the TFLite Interpreter (Much lighter than load_model)
+# 1. Use the TFLite Interpreter from tflite_runtime
 # Ensure garbage_model.tflite is in the same folder as main.py
-interpreter = tf.lite.Interpreter(model_path="garbage_model.tflite")
+interpreter = tflite.Interpreter(model_path="garbage_model.tflite")
 interpreter.allocate_tensors()
 
 # Get input and output details for the model
