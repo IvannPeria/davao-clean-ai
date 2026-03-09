@@ -108,25 +108,55 @@ export default function ClassifierPage() {
    * Sends the uploaded image to the classification API endpoint.
    * TODO: Replace mock timeout with actual Supabase/AI API call.
    */
-  const handleClassify = async () => {
-    if (!selectedFile) return;
-    setIsLoading(true);
-    setResult(null);
-
-    // --- TODO: Replace this mock with your real API call ---
-    // const formData = new FormData();
-    // formData.append('image', selectedFile);
-    // const response = await fetch('/api/classify', { method: 'POST', body: formData });
-    // const data = await response.json();
-    // setResult(data.category);
-    // -------------------------------------------------------
-
-    // Mock delay simulating AI processing
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    const mockCategories: Exclude<WasteCategory, null>[] = ['Biodegradable', 'Recyclable', 'Residual', 'Special Waste'];
-    setResult(mockCategories[Math.floor(Math.random() * mockCategories.length)]);
-    setIsLoading(false);
+  // Define the mapping based on local waste management standards
+/** * 1. Define the mapping function OUTSIDE handleClassify. 
+ * We use 'as WasteCategory' to fix the assignability error.
+ */
+const mapLabelToCategory = (label: string): WasteCategory => {
+  const mapping: Record<string, WasteCategory> = {
+    'Cardboard': 'Recyclable',
+    'Paper': 'Recyclable',
+    'Glass': 'Recyclable',
+    'Metal': 'Recyclable',
+    'Plastic': 'Recyclable',
+    'Trash': 'Residual' 
   };
+
+  return mapping[label] || 'Special Waste';
+};
+
+const handleClassify = async () => {
+  if (!selectedFile) return;
+  setIsLoading(true);
+  setResult(null);
+
+  try {
+    const formData = new FormData();
+    formData.append('file', selectedFile);
+
+    const response = await fetch('https://davao-clean-ai.onrender.com', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (!response.ok) throw new Error('Network response was not ok');
+
+    const data = await response.json();
+    
+    // This now returns a valid WasteCategory type, fixing Error 2345
+    const category = mapLabelToCategory(data.label);
+    
+    setResult(category);
+    
+    console.log(`AI detected ${data.label} -> Categorized as ${category}`);
+
+  } catch (error) {
+    console.error("Error classifying waste:", error);
+    alert("Could not connect to the AI server. Please try again later.");
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   /** Resets all state to allow classifying a new image */
   const handleReset = () => {
