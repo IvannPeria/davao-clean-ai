@@ -223,22 +223,21 @@ export default function Home() {
                 icon: '✉️',
                 title: 'Email',
                 sub: 'Send us a message',
-                link: 'mailto:support@davaoclean.ai',
-                label: 'support@davaoclean.ai',
+                link: 'mailto:davaocleanai@gmail.com',
+                label: 'davaocleanai@gmail.com',
               },
               {
                 icon: '📞',
                 title: 'Phone',
                 sub: 'Call during business hours',
-                link: 'tel:+6382123456',
-                label: '+63 (82) 123-4567',
+                link: 'tel:+639495494117',
+                label: '+63 (949) 549-4117',
               },
               {
                 icon: '📍',
                 title: 'Office',
                 sub: 'Davao City, Mindanao, Philippines',
-                link: '#',
-                label: 'Get directions →',
+                link: '#'
               },
             ].map((c) => (
               <div key={c.title} className="bg-white p-8 rounded-2xl text-center border border-green-100 hover:shadow-md transition-shadow">
