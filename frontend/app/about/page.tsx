@@ -176,9 +176,9 @@ export default function AboutPage() {
                 badge: 'SDG 12',
               },
               {
-                emoji: '📅',
-                title: 'Collection Schedule Dashboard',
-                desc: 'View barangay-specific waste collection schedules so residents know exactly when and what to put out — eliminating missed pickups and mixed waste.',
+                emoji: '🤝',
+                title: 'Participatory Urban Action',
+                desc: 'Empowers every Davaoeño to participate in the city’s environmental governance, turning individual actions into community-wide data that helps the LGU optimize waste management resources.',
                 badge: 'SDG 11',
               },
               {

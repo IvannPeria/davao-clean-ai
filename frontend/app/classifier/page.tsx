@@ -306,19 +306,27 @@ const handleClassify = async () => {
             <h2 className="text-3xl font-bold text-gray-900 mb-4">How It Works</h2>
             <p className="text-gray-500">From photo to proper disposal in seconds</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { step: '01', emoji: '📸', title: 'Snap or Upload', desc: 'Take a clear photo of your waste item, or upload one from your gallery. Better lighting = better accuracy.' },
-              { step: '02', emoji: '🧠', title: 'AI Analyzes It', desc: 'Our AI model processes the image and identifies the waste type within seconds.' },
-              { step: '03', emoji: '✅', title: 'Get Instructions', desc: 'Receive the waste category, proper disposal method, and your barangay\'s collection schedule.' },
-            ].map((item) => (
-              <div key={item.step} className="bg-green-50 rounded-2xl p-8 text-center border border-green-100">
-                <div className="text-5xl font-black text-green-200 mb-2">{item.step}</div>
-                <div className="text-4xl mb-4">{item.emoji}</div>
-                <h3 className="font-bold text-gray-900 text-lg mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
-              </div>
-            ))}
+          <div className="flex justify-center w-full px-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+              {[
+                { step: '01', emoji: '📸', title: 'Snap or Upload', desc: 'Take a clear photo of your waste item, or upload one from your gallery. Better lighting = better accuracy.' },
+                { step: '02', emoji: '🧠', title: 'AI Analyzes It', desc: 'Our AI model processes the image and identifies the waste type within seconds.' },
+              ].map((item) => (
+                <div 
+                  key={item.step} 
+                  className="aspect-square flex flex-col items-center justify-center bg-green-50 rounded-3xl p-8 text-center border border-green-100 shadow-sm"
+                >
+                  <div className="text-6xl font-black text-green-200/60 mb-2 leading-none">
+                    {item.step}
+                  </div>
+                  <div className="text-5xl mb-6">{item.emoji}</div>
+                  <h3 className="font-bold text-gray-900 text-xl mb-3">{item.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed max-w-[250px]">
+                    {item.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -379,7 +387,7 @@ const handleClassify = async () => {
               <span className="text-3xl">✉️</span>
               <div>
                 <div className="font-semibold text-gray-900">Email Support</div>
-                <div className="text-green-600 text-sm">support@davaoclean.ai</div>
+                <div className="text-green-600 text-sm">davaocleanai@gmail.com</div>
               </div>
             </a>
             <a
@@ -389,7 +397,7 @@ const handleClassify = async () => {
               <span className="text-3xl">📞</span>
               <div>
                 <div className="font-semibold text-gray-900">Call Us</div>
-                <div className="text-green-600 text-sm">+63 (82) 123-4567</div>
+                <div className="text-green-600 text-sm">+63 (949) 549-4117</div>
               </div>
             </a>
           </div>

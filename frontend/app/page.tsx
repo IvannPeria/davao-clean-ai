@@ -35,7 +35,7 @@ export default function Home() {
 
           <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
             DavaoClean AI revolutionizes waste management with AI-powered photo classification.
-            Upload a waste photo, get instant results, and view collection schedules—free for all Davaoeños.
+            Upload a waste photo, get instant results.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -72,7 +72,7 @@ export default function Home() {
             <p className="text-gray-500">Three simple steps to properly segregate your waste</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="flex flex-wrap justify-center gap-8">
             {[
               {
                 step: '01',
@@ -88,14 +88,6 @@ export default function Home() {
                 desc: 'Our AI model instantly analyzes and categorizes your waste into the correct type.',
                 icon: (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                ),
-              },
-              {
-                step: '03',
-                title: 'View Schedule',
-                desc: 'Get proper disposal instructions and the collection schedule for your barangay.',
-                icon: (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 ),
               },
             ].map((item) => (
@@ -144,10 +136,9 @@ export default function Home() {
           <div className="flex overflow-x-auto gap-6 pb-6 snap-x snap-mandatory scrollbar-hide">
             {[
               { color: 'green', emoji: '🌍', title: 'Environmental Impact', desc: 'Reduce landfill waste and promote sustainable waste practices across Davao City.' },
-              { color: 'emerald', emoji: '✅', title: 'Compliance Made Easy', desc: 'Automatically follow DENR and local waste segregation regulations without guessing.' },
               { color: 'teal', emoji: '🏘️', title: 'Cleaner Neighborhoods', desc: 'Contribute to healthier, more livable barangays for every resident.' },
               { color: 'lime', emoji: '🤖', title: 'Smart AI Technology', desc: 'Powered by advanced image recognition for accurate, real-time waste classification.' },
-              { color: 'green', emoji: '⏱️', title: 'Real-time Updates', desc: 'Instant feedback on waste type and up-to-date collection schedule info.' },
+              { color: 'green', emoji: '⏱️', title: 'Real-time Updates', desc: 'Instant feedback on waste type.' },
               { color: 'emerald', emoji: '🌐', title: 'SDG 11 & 12 Aligned', desc: 'Supporting UN Sustainable Development Goals for cities and responsible consumption.' },
             ].map((item) => (
               <div
@@ -204,10 +195,6 @@ export default function Home() {
               {
                 q: 'How do I use the classifier?',
                 a: 'Take or upload a clear photo of your waste item. The AI analyzes it in seconds and returns the waste category plus proper disposal instructions.',
-              },
-              {
-                q: 'What are the collection schedules?',
-                a: 'Schedules vary by barangay. After classification, you will see schedule details based on your location and waste type.',
               },
               {
                 q: 'Is DavaoClean AI free?',
