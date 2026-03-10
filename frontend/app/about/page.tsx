@@ -97,14 +97,14 @@ export default function AboutPage() {
               {
                 name: 'Ivann Peria',
                 role: 'Full Stack Developer',
-                bio: 'Ivann leads the frontend and AI integration, crafting seamless user experiences and connecting the waste classification model to the live application.',
+                bio: 'Ivann leads the backend and AI integration, crafting seamless user experiences and connecting the waste classification model to the live application.',
                 initials: 'IP',
                 color: 'bg-green-600',
               },
               {
                 name: 'Alle Zayd Abusaman',
                 role: 'Full Stack Developer',
-                bio: 'Alle handles the backend architecture, database design with Supabase, and ensures the system is scalable, secure, and ready for city-wide use.',
+                bio: 'Alle handles the frontend architecture, database design with Supabase, and ensures the system is scalable, secure, and ready for city-wide use.',
                 initials: 'AZ',
                 color: 'bg-emerald-600',
               },
